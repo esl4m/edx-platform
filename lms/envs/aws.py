@@ -1018,4 +1018,4 @@ ORA2_FILEUPLOAD_CACHE_NAME = ENV_TOKENS.get('ORA2_FILEUPLOAD_CACHE_NAME', 'defau
 ############## Settings for CourseGraph ############################
 COURSEGRAPH_JOB_QUEUE = ENV_TOKENS.get('COURSEGRAPH_JOB_QUEUE', LOW_PRIORITY_QUEUE)
 
-INSTALLED_APPS += ('rg_instructor_analytics')
+INSTALLED_APPS += ['rg_instructor_analytics']

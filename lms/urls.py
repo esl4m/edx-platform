@@ -463,6 +463,16 @@ urlpatterns += (
         name='instructor_dashboard',
     ),
 
+    # For the rg interanl instructor analytics
+    url(
+        r'^courses/{}/tab/instructor_analytics/'.format(
+            settings.COURSE_ID_PATTERN,
+        ),
+        include('rg_instructor_analytics.urls'),
+        name='instructor_analytics_endpoint',
+    ),
+
+
 
     url(
         r'^courses/{}/set_course_mode_price$'.format(

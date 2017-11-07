@@ -1,0 +1,3 @@
+[submodule "openedx/features/edx_rg_instructor_analytics"]
+	path = openedx/features/edx_rg_instructor_analytics
+	url = https://github.com/raccoongang/rg_instructor_analytics

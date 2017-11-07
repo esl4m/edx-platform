@@ -10,7 +10,6 @@ del DEFAULT_FILE_STORAGE
 MEDIA_ROOT = "/edx/var/edxapp/uploads"
 ORA2_FILEUPLOAD_BACKEND = 'django'
 
-
 DEBUG = True
 USE_I18N = True
 DEFAULT_TEMPLATE_ENGINE['OPTIONS']['debug'] = True
@@ -27,6 +26,7 @@ ENTERPRISE_API_URL = LMS_ROOT_URL + '/enterprise/api/v1/'
 
 # Silence noisy logs
 import logging
+
 LOG_OVERRIDES = [
     ('track.contexts', logging.CRITICAL),
     ('track.middleware', logging.CRITICAL),
@@ -35,7 +35,6 @@ LOG_OVERRIDES = [
 ]
 for log_name, log_level in LOG_OVERRIDES:
     logging.getLogger(log_name).setLevel(log_level)
-
 
 ################################ EMAIL ########################################
 
@@ -61,7 +60,7 @@ DJFS = {
 
 ################################ DEBUG TOOLBAR ################################
 
-INSTALLED_APPS += ('debug_toolbar', 'debug_toolbar_mongo')
+INSTALLED_APPS += ('debug_toolbar', 'debug_toolbar_mongo', 'rg_instructor_analytics')
 MIDDLEWARE_CLASSES += (
     'django_comment_client.utils.QueryCountDebugMiddleware',
     'debug_toolbar.middleware.DebugToolbarMiddleware',
@@ -144,7 +143,6 @@ FEATURES['ADVANCED_SECURITY'] = False
 PASSWORD_MIN_LENGTH = None
 PASSWORD_COMPLEXITY = {}
 
-
 ########################### Milestones #################################
 FEATURES['MILESTONES_APP'] = True
 
@@ -157,19 +155,15 @@ FEATURES['ENTRANCE_EXAMS'] = True
 ################################ COURSE LICENSES ################################
 FEATURES['LICENSING'] = True
 
-
 ########################## Courseware Search #######################
 FEATURES['ENABLE_COURSEWARE_SEARCH'] = True
 SEARCH_ENGINE = "search.elastic.ElasticSearchEngine"
 
-
 ########################## Dashboard Search #######################
 FEATURES['ENABLE_DASHBOARD_SEARCH'] = True
 
-
 ########################## Certificates Web/HTML View #######################
 FEATURES['CERTIFICATES_HTML_VIEW'] = True
-
 
 ########################## Course Discovery #######################
 LANGUAGE_MAP = {'terms': {lang: display for lang, display in ALL_LANGUAGES}, 'name': 'Language'}
@@ -205,7 +199,6 @@ DISABLE_ACCOUNT_ACTIVATION_REQUIREMENT_SWITCH = "verify_student_disable_account_
 
 # Skip enrollment start date filtering
 SEARCH_SKIP_ENROLLMENT_START_DATE_FILTERING = True
-
 
 ########################## Shopping cart ##########################
 FEATURES['ENABLE_SHOPPING_CART'] = True
@@ -277,3 +270,5 @@ if os.path.isfile(join(dirname(abspath(__file__)), 'private.py')):
 MODULESTORE = convert_module_store_setting_if_needed(MODULESTORE)
 
 SECRET_KEY = '85920908f28904ed733fe576320db18cabd7b6cd'
+
+FEATURES['CLASS_DASHBOARD'] = True

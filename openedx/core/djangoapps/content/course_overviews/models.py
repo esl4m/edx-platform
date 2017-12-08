@@ -119,7 +119,7 @@ class CourseOverview(TimeStampedModel):
         """
         from lms.djangoapps.certificates.api import get_active_web_certificate
         from openedx.core.lib.courses import course_image_url
-        from contentstore.courseware_index import CoursewareSearchIndexer
+        from cms.djangoapps.contentstore.courseware_index import CoursewareSearchIndexer
         from cms.djangoapps.contentstore.courseware_index import CourseAboutSearchIndexer
         from opaque_keys.edx.keys import CourseKey
 
